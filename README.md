@@ -28,9 +28,11 @@ Library to Support ServiceNow Cloud Project Request Table mapping to/from JSON f
 |Name|string [5:40]|optional|e.g. fname lname|
 |Email|string [email]|required|valid email|
 
+|Miscellaneous Type Definitions|na|abstract||
+|---|---|---|---|---|
 |SalesId|string [40]|optional|validate with CRM/SFA|
 |Contract|string[40]|optional|may be a string the talks about the specific contract, eventually should hold a client pre-sales/project code|
-PTime|string[RFC3339]|optional|from/to date construct project, may want to validate upstream based upon some SLA (e.g. 24hr/1day response?) where used|
+|PTime|string[RFC3339]|optional|from/to date construct project, may want to validate upstream based upon some SLA (e.g. 24hr/1day response?) where used|
 
 
 
