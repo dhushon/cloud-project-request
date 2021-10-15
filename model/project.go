@@ -27,8 +27,8 @@ type OrgGroup string
 
 type Project struct {
 	ProjectName     string     `json:"projectName,omitempty" validate:"max=40,min=5,projunique" binding:"required"`
-	ProjectId 		string     `json:"projectId,omitempty" validate:"max"`
-	ProjectGroup 	*OrgGroup  `json:"projectGroup" validate:"" binding:"required"`
+	ProjectId 		string     `json:"projectId,omitempty" validate:"max=20" binding:""`
+	ProjectGroup 	*OrgGroup  `json:"projectGroup" validate:"group" binding:"required"`
 	ProjectOwner    *Person	   `json:"projectOwner" validate:"person" binding:"required"`
 	ProjectEngineer *Person	   `json:"projectEngineer" validate:"person" binding:"required"`
 	SalesId			SalesId    `json:"salesId,omitempty" validate:"" binding:""`
