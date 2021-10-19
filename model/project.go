@@ -1,7 +1,7 @@
 package model
 
 import (
-	"gopkg.in/go-playground/validator.v9"
+	"github.com/go-playground/validator/v10"
 	"time"
 	"encoding/json"
 )
@@ -22,13 +22,15 @@ type SalesId string
 type Contract string
 
 type PTime time.Time //Standard time is RFC3339
-
-type OrgGroup string
+type Group struct {
+	Name string `json:"name" validate:"max=40,min-5" binding:"required"`
+	Membership []*Person `json:"membership" validate:""`
+}
 
 type Project struct {
 	ProjectName     string     `json:"projectName,omitempty" validate:"max=40,min=5,projunique" binding:"required"`
 	ProjectId 		string     `json:"projectId,omitempty" validate:"max=20" binding:""`
-	ProjectGroup 	*OrgGroup  `json:"projectGroup" validate:"group" binding:"required"`
+	ProjectGroup 	*Group     `json:"projectGroup" validate:"group" binding:"required"`
 	ProjectOwner    *Person	   `json:"projectOwner" validate:"person" binding:"required"`
 	ProjectEngineer *Person	   `json:"projectEngineer" validate:"person" binding:"required"`
 	SalesId			SalesId    `json:"salesId,omitempty" validate:"" binding:""`
@@ -36,6 +38,7 @@ type Project struct {
 	Start			PTime	   `json:"expectedStart,omitempty" validate:"" binding:""`
 	End				PTime	   `json:"expectectedEnd,omitempty" validate:"" binding:""`
 	Regulations     []*string  `json:"regulations" validate:"" binding:""`
+	FedRamp			bool	   `json:"fedramp" validate:"required" binding:"required"`
 	Partners 		[]*string  `json:"developmentPartners" validate:"" binding:""`
 }
 
