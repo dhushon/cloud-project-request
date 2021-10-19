@@ -4,6 +4,12 @@ Library to Support ServiceNow Cloud Project Request Table mapping to/from JSON f
 ## Documentation
 
 ### Data model
+|Request|key|na|Complex Cloud Service Request|
+|---|---|---|---|
+|ProjectRequest|*Project|required|information about the project itself `json:"projectRequest"`|
+|TenancyRequest| *Tenancy|required|information about the cloud tenancy(ies) required`json:"tenancyRequest"`|
+|Integrations|*Integrations|required|requisite integrations like identity, github or other key services including front end firewall services`json:"integrations"|
+|DevelopmentEnvironment|*Development|required|information around the developmnet environment, sdlc, toolchain and style  `json:"developmentEnvironment"`|
 
 |Project|||||
 |---|---|---|---|---|
