@@ -38,6 +38,7 @@ type Project struct {
 	Start			PTime	   `json:"expectedStart,omitempty" validate:"" binding:""`
 	End				PTime	   `json:"expectectedEnd,omitempty" validate:"" binding:""`
 	Regulations     []*string  `json:"regulations" validate:"" binding:""`
+	Financial       *Financial `json:"financial,omitempty" validate:"" binding:""`
 	FedRamp			bool	   `json:"fedRamp" validate:"required" binding:"required"`
 	Partners 		[]*string  `json:"developmentPartners" validate:"" binding:""`
 }
